@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const subscriptionSchema = new mongoose.Schema({
   name: String,
@@ -8,6 +8,6 @@ const subscriptionSchema = new mongoose.Schema({
   Devices: [String],
 });
 
-const Subscription = mongoose.model('MonthlySubscription', subscriptionSchema);
+const Subscription = mongoose.model("MonthlySubscription", subscriptionSchema);
 
 module.exports = Subscription;

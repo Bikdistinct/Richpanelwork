@@ -5,6 +5,7 @@ const PlanData = require("./routes/planData");
 const userRoutes = require("./routes/user");
 const User = require("./models/user");
 const subscribeRoutes =require("./routes/subscribe")
+const currSubs=require("./routes/currplan")
 const { notFound, errorHandler } = require("./middleware/error");
 const cors = require("cors");
 
@@ -25,6 +26,7 @@ app.use(function (req, res, next) {
 app.use("/api/plan", PlanData);
 app.use("/api/user", userRoutes);
 app.use("/api/subs", subscribeRoutes);
+app.use("/api/currplan",currSubs);
 
 //stripe
 const [mobile, basic, standard, premium] = [

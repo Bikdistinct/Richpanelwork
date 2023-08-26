@@ -6,7 +6,7 @@ import Card from "./plancard";
 import { useNavigate } from "react-router-dom";
 function Subscribtion() {
   const navigate = useNavigate();
-  const [userdata, setUserdata] = useState({});
+  // const [userdata, setUserdata] = useState({});
   const [selectedPlanIndex, setSelectedPlanIndex] = useState(null);
   const [selectedPlanPrice,setSelectedPlanPrice]=useState(null);
   const [selectedPlanId,setSelectedPlanId]=useState("");
@@ -78,7 +78,7 @@ function Subscribtion() {
         const { data: response } = await axios.post(
             "http://localhost:5000/api/subs/session",
             {
-                priceId,
+                priceId,id
             }
         );
 
