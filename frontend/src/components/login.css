@@ -1,0 +1,81 @@
+.login{
+    display: flex;
+    text-align: center;
+    background-color: #1e4d90;
+    width: 100vw;
+    height: 100vh;
+}
+.logincard{
+    display: flex;
+    flex-direction: column;
+    height: 22rem;
+    width: 22rem;
+    background-color: white;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: auto;
+    /* border: 1px solid black; */
+}
+
+.signup{
+    height: 25rem;
+}
+
+.heading{
+    font-weight: 500;
+    font-size: medium;
+    margin-bottom: 1rem;
+}
+.loginform{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.checkRem{
+    display: flex;
+    flex-direction: row;
+}
+
+.signupBtn{
+    background-color:#1e4d90;
+    color: white;
+    text-align: center;
+    width: 16rem;
+    padding: 0.4rem;
+    border-radius: 3px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.loginLink{
+    font-size: medium;
+    text-align: center;
+}
+
+input{
+    border-radius: 5px;
+    width: 16rem;
+    padding: 0.4rem;
+    border: 1px solid grey;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+input[type="checkbox"]{
+    width: 1rem;
+    text-align: center;
+    margin-top: unset;
+    margin-bottom: unset;
+    
+}
+
+a{
+    text-decoration: none;
+    color:#1e4d90 ;
+}
