@@ -36,7 +36,7 @@ router.post("/session", async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:3000/currentplan",
+      success_url: "http://localhost:3000/curSubscription",
       cancel_url: "http://localhost:3000/",
       // customer: user.stripeCustomerId,
     },

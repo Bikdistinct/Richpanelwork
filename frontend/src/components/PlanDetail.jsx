@@ -49,23 +49,109 @@ function PlanDetail() {
   //   fetchCurrPlan();
   // }, []);
   
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const id = JSON.parse(localStorage.getItem('userInfo'))._id;
+  //       const response = await axios.get(`http://localhost:5000/api/user/getuser/${id}`);
+  //       setUserdata(response.data.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //       // Handle error (e.g., redirect to login page)
+  //       navigate('/login');
+  //     }
+  //   };
+
+  //   const fetchCurrPlan = async () => {
+  //     try {
+  //       const response = await axios.get(`http://localhost:5000/api/currplan/subscription/${userdata.planId}`);
+  //       setcurrPlan(response.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //       // Handle error (e.g., show error message)
+  //     }
+  //   };
+
+  //   if (!localStorage.getItem('userInfo')) {
+  //     navigate('/login');
+  //   } 
+  //   // else {
+  //   //   fetchUser();
+  //   // }
+  //   fetchUser();
+  //   fetchCurrPlan();
+  // }, [navigate, userdata.planId]);
+
+
+
+  
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const id = JSON.parse(localStorage.getItem('userInfo'))._id;
+  //       const response = await fetch(`http://localhost:5000/api/user/getuser/${id}`);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setUserdata(data.data);
+  //       } else {
+  //         navigate('/login');
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //       navigate('/login');
+  //     }
+  //   };
+
+  //   const fetchCurrPlan = async () => {
+  //     try {
+  //       const response = await fetch(`http://localhost:5000/api/currplan/subscription/${userdata.planId}`);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setcurrPlan(data);
+  //       } else {
+  //         // Handle error (e.g., show error message)
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //       // Handle error (e.g., show error message)
+  //     }
+  //   };
+
+  //   if (!localStorage.getItem('userInfo')) {
+  //     navigate('/login');
+  //   } else {
+  //     fetchUser();
+  //     fetchCurrPlan();
+  //   }
+  // }, [navigate, userdata.planId]);
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const id = JSON.parse(localStorage.getItem('userInfo'))._id;
-        const response = await axios.get(`http://localhost:5000/api/user/getuser/${id}`);
-        setUserdata(response.data.data);
+        const response = await fetch(`http://localhost:5000/api/user/getuser/${id}`);
+        if (response.ok) {
+          const data = await response.json();
+          setUserdata(data.data);
+          fetchCurrPlan(); // Fetch currPlan after successfully fetching userdata
+        } else {
+          navigate('/login');
+        }
       } catch (error) {
         console.error(error);
-        // Handle error (e.g., redirect to login page)
         navigate('/login');
       }
     };
 
     const fetchCurrPlan = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/currplan/subscription/${userdata.planId}`);
-        setcurrPlan(response.data);
+        const response = await fetch(`http://localhost:5000/api/currplan/subscription/${userdata.planId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setcurrPlan(data);
+        } else {
+          // Handle error (e.g., show error message)
+        }
       } catch (error) {
         console.error(error);
         // Handle error (e.g., show error message)
@@ -74,12 +160,9 @@ function PlanDetail() {
 
     if (!localStorage.getItem('userInfo')) {
       navigate('/login');
-    } 
-    // else {
-    //   fetchUser();
-    // }
-    fetchUser();
-    fetchCurrPlan();
+    } else {
+      fetchUser();
+    }
   }, [navigate, userdata.planId]);
 
   return (
@@ -90,7 +173,7 @@ function PlanDetail() {
                     <span>Current Plan Details</span>
                     <span className='stateDetail' style={statestyle}>{planState}</span>
                 </div>
-                <div  onClick={()=>setplanState("Cancelled")}><p>{planState=="Active"?'Cancel':""}</p></div>
+                <div className='cancelbtn' onClick={()=>setplanState("Cancelled")}><p>{planState=="Active"?'Cancel':""}</p></div>
             </div>
             <div className='plan'>{currPlan.subscriptionName}</div>
             <div className='planDevice'>{currPlan.subscriptionDevices}</div>

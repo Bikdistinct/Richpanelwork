@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    height: 15rem;
+    height: 17rem;
     width: 31rem;
     border: 1px solid black;
     border-radius: 15px;
@@ -27,18 +27,24 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
 }
 
 .stateDetail{
     border-radius: 5px;
     padding-left: 3px;
     padding: 3px;
-    padding: ;
+    /* padding: ; */
     text-align: center;
     background-color: #c1dcfb;
     color: #2e64ad;
 }
 
+.cancelbtn{
+    color: #1e4d90;
+    cursor: pointer;
+}
 .plan{
     color: #545454;
 }
@@ -47,7 +53,7 @@
 }
 .planBudget{
     color: #000000;
-    font-weight: 600;
+    font-weight: 700;
     font-size: large;
     margin-top: 0.5rem;
 }

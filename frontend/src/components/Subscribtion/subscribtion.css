@@ -98,6 +98,7 @@ ul li {
   color: white;
   border-radius: 5px;
   padding: 1rem 0rem 1rem;
+  cursor: pointer;
 }
 
 .card h3 {

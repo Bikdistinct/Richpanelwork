@@ -34,12 +34,12 @@ router.get("/subscription/:planId", async (req, res) => {
     }
 
     // If not found in both collections, return a default response
-    return res.json({
-      subscriptionName: "No Subscription",
-      subscriptionPrice: "b",
-      subscriptionDevices: "c",
-      subscriptionType: "unknown",
-    });
+    // return res.json({
+    //   subscriptionName: "No Subscription",
+    //   subscriptionPrice: "0",
+    //   subscriptionDevices: "No devices",
+    //   subscriptionType: "No Plan",
+    // });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "An error occurred." });
