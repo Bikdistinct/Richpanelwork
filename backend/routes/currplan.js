@@ -9,7 +9,7 @@ router.get("/subscription/:planId", async (req, res) => {
   try {
     const planId = req.params.planId;
 
-    // First, search in MonthlySubscription
+    // search MonthlySubscription
     const monthlySubscription = await MonthlySubscription.findOne({ planId });
 
     if (monthlySubscription) {
@@ -21,7 +21,7 @@ router.get("/subscription/:planId", async (req, res) => {
       });
     }
 
-    // If not found in MonthlySubscription, search in YearlySubscription
+    // not in MonthlySubscription, search in YearlySubscription
     const yearlySubscription = await YearlySubscription.findOne({ planId });
 
     if (yearlySubscription) {

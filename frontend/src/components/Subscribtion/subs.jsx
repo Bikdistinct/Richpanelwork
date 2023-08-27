@@ -31,15 +31,7 @@ function Subscribtion() {
 
   //get user login data
   let id = JSON.parse(localStorage.getItem("userInfo"));
-  // const fetchdata = async () => {
-  //   let id = JSON.parse(localStorage.getItem("userInfo"));
-  //   const ress = await axios.get(
-  //     `http://localhost:3000/api/user/getuser/${id._id}`
-  //   );
-  //   // const ress=await axios.get(`/api/user/getuser/${id}`);
-  //   const d = ress.data;
-  //   setUserdata(d.data);
-  // };
+
 
   const checkout = (plan) => {
     if (selectedPlanPrice > 0) {

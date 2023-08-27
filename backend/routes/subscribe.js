@@ -45,42 +45,12 @@ router.post("/session", async (req, res) => {
     }
   );
 
-  const userId = req.body.id; // Assuming you have a user object in the request (middleware)
+  const userId = req.body.id;
 
-  // Update the planId field in the user document
+  // Update the planId
   await User.findByIdAndUpdate(userId._id, { $set: { planId: prices } });
 
   return res.json(session);
 });
 
-// router.post("/session", async (req, res) => {
-//   try {
-//     const { priceId } = req.body;
-
-//     // Create a new session
-//     const session = await stripe.checkout.sessions.create({
-//       mode: "subscription",
-//       payment_method_types: ["card"],
-//       line_items: [
-//         {
-//           price: priceId,
-//           quantity: 1,
-//         },
-//       ],
-//       success_url: "http://localhost:3000/currentplan",
-//       cancel_url: "http://localhost:3000/",
-//     });
-
-//     // Update the user's planId after successful payment
-//     const userId = req.user.id; // Assuming you have a user object in the request (middleware)
-
-//     // Update the planId field in the user document
-//     await User.updateOne({ _id: userId }, { $set: { planId: priceId } });
-
-//     return res.json(session);
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({ error: "An error occurred." });
-//   }
-// });
 module.exports = router;
